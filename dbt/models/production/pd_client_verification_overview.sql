@@ -12,9 +12,9 @@ WITH verification_session AS (
 		ver.client_id,
 		ver.document_type,
 		COUNT(DISTINCT ver.verification_session_id) AS verification_session_cnt,
-		SUM(CASE WHEN ver.verification_status = 'approved' THEN 1 ELSE 0 END) AS approved_cnt,
-		SUM(CASE WHEN ver.verification_status = 'resubmission' THEN 1 ELSE 0 END) AS resubmission_cnt,
-		SUM(CASE WHEN ver.verification_status = 'declined' THEN 1 ELSE 0 END) AS declined_cnt
+		SUM(CASE WHEN LOWER(ver.verification_status) = 'approved' THEN 1 ELSE 0 END) AS approved_cnt,
+		SUM(CASE WHEN LOWER(ver.verification_status) = 'resubmission' THEN 1 ELSE 0 END) AS resubmission_cnt,
+		SUM(CASE WHEN LOWER(ver.verification_status) = 'declined' THEN 1 ELSE 0 END) AS declined_cnt
 	FROM {{ ref('f_verification_overview') }} AS ver 
 	LEFT JOIN {{ ref('d_country_region') }} AS ctr
 		   ON ver.country_id = ctr.country_id
