@@ -1,0 +1,36 @@
+volumes:
+  verification_data:
+    name: verification-data
+
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: verification
+    volumes:
+      - verification_data:/var/lib/postgresql/data
+    ports:
+      - "34197:5432"
+
+  build_database:
+    build:
+      context: .
+    environment:
+      PGPASSWORD: admin
+    depends_on:
+      - postgres
+    command: ./../entrypoint.sh build-db
+
+  task:
+    build:
+      context: .
+    environment:
+      DBT_PROFILES_DIR: /opt/data_engineer/dbt
+      PGPASSWORD: admin
+    depends_on:
+      - postgres
+      - build_database
+    volumes:
+      - .:/opt/data_engineer

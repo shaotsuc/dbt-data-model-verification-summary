@@ -1,0 +1,21 @@
+version: 2
+
+sources:
+  - name: crm
+    database: verification  
+    schema: crm  
+    tables:
+      - name: accounts
+      - name: account_managers
+
+  - name: prod
+    database: verification
+    schema: prod
+    tables:
+      - name: clients
+      - name: countries
+      - name: documents
+      - name: employees
+      - name: regions
+      - name: roles
+      - name: verification_sessions

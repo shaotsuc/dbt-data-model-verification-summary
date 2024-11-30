@@ -1,0 +1,14 @@
+data_engineer:
+  outputs:
+
+    dev:
+      type: postgres
+      threads: 4
+      host: postgres
+      port: 5432
+      user: admin
+      pass: admin
+      dbname: verification
+      schema: dbt
+
+  target: dev
