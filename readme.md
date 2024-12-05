@@ -131,12 +131,12 @@ GROUP BY
 ORDER BY 
     declined_cnt DESC
 ```
-|   | region_name *text* | declined_cnt *numeric* |
-| - | ---------------- | --------------------: |
-| 1 | north_hemisphere | 120                  |
-| 2 | oceania          | 59                   |
-| 3 | tropical         | 30                   |
-| 4 | arctic           | 22                   |
+| region_name | declined_cnt  |
+| ---------------- | --------------------: |
+| north_hemisphere | 120                  |
+| oceania          | 59                   |
+| tropical         | 30                   |
+| arctic           | 22                   |
 
 <br>
 
@@ -151,11 +151,11 @@ GROUP BY
 ORDER BY 
     resubmission_cnt DESC
 ```
-|   | document_type *text* | resubmission_cnt *numeric* |
-| - | --------------------- | ------------------------: |
-| 1 | PASSPORT              | 302                      |
-| 2 | DRIVERS_LICENSE       | 247                      |
-| 3 | RESIDENCE_PERMIT      | 193                      |
+| document_type  | resubmission_cnt |
+| -------------- | -----------------: |
+| PASSPORT            | 302            |
+| DRIVERS_LICENSE     | 247            |
+| RESIDENCE_PERMIT    | 193            |
 
 <br>
 
@@ -182,9 +182,9 @@ SELECT *
 FROM ranking 
 WHERE rank_nr = 1
 ```
-|   | region_name *text* | client_industry *text* | verification_session_cnt *numeric* |
-| - | ---------------- | -------------------- | --------------------------------: |
-| 1 | arctic           | FINTECH              | 130                              |
-| 2 | north_hemisphere | FINTECH              | 523                              |
-| 3 | oceania          | FINTECH              | 273                              |
-| 4 | tropical         | FINTECH              | 195                              |
+| region_name | client_industry  | verification_session_cnt  |
+| ------------- | -------------- | ---------------------: |
+| arctic        | FINTECH      | 130            |
+| north_hemisphere | FINTECH   | 523            |
+| oceania       | FINTECH      | 273            |
+| tropical      | FINTECH      | 195            |
